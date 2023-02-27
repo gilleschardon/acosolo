@@ -59,6 +59,6 @@ def plotmap(pmap, name, dynrange):
 
 
 plotmap(np.reshape(cmf_map, [dimgrid[1], dimgrid[0]]), 'CMF-NNLS', 20)
-plotmap(np.reshape(bmap, [dimgrid[1], dimgrid[0]]), 'CMF-NNLS', 20)
+plotmap(np.reshape(bmap, [dimgrid[1], dimgrid[0]]), 'Beamforming', 20)
 
 

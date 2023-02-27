@@ -8,9 +8,9 @@ Created on Tue Dec  8 14:21:40 2020
 
 import numpy as np
 import matplotlib.pyplot as plt
-from acosolo.sourcemodels import freefield, freefield2D
+from acosolo.sourcemodels import freefield2D
 from acosolo.beamforming import bmap_unc
-from acosolo.utils import square_array, generate_source, generate_noise, scm, grid3D, generate_correlated_sources
+from acosolo.utils import square_array, generate_noise, scm, grid3D, generate_correlated_sources
 from acosolo.cmf import CMF_OLS_correl
 
 
@@ -28,10 +28,12 @@ g = lambda x : freefield2D(Array, x, Z, k)
 
 Xgrid, dimgrid = grid3D([-1, -1, Z], [1, 1, Z], 0.01)
 
+# coordinates of the sources
 XYZs = np.array([ [0.5, 0., Z], [-0.5, 0.1, 2], [0.4, -0.2, Z],[-0.5, -0.5, Z]])
 
 Nsnaps = 100
 
+# covariance matrix of the sources
 Sigma_source = np.array([[4, 2, 0, 0], [2, 2, 0, 0], [0, 0, 1, 1], [0, 0, 1, 1]])
 
 Nsources= 4
@@ -47,10 +49,13 @@ sig0 = sig_source + sig_noise
     
 Sigma0 = scm(sig0)
 
+# source dictionary
 A = g(Xgrid)
 
+# estimation of the covariance matrices and indices of the selected sources
 S_est, idx = CMF_OLS_correl(Sigma0, A, Nsources)
     
+# beamforming map
 bmap = bmap_unc(Sigma0, A)
 #%%
 fig, axs = plt.subplots(2, 2)

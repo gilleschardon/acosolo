@@ -8,7 +8,7 @@ Created on Fri Feb 24 09:46:27 2023
 
 import numpy as np
 from numpy.random import normal
-from scipy.linalg import sqrtm
+from scipy.linalg import sqrtm, eigh, pinv
 
 
 def square_array(aperture, N, center = [0,0,0], axis='z'):
@@ -53,3 +53,17 @@ def scm(sig):
 
 def normalize(A):
     return A / np.sqrt(np.real(np.sum(A * np.conj(A), axis=0)))
+
+def LS_powers(Sigma, G):
+    Ns = G.shape[1]
+    lambdas = eigh(Sigma, eigvals_only=True)
+    lambda_noise = np.mean(lambdas[:-Ns])
+    
+    Gpinv = pinv(G)
+    
+    PPest = Gpinv @ (Sigma - lambda_noise * np.eye(Sigma.shape)) @ Gpinv.T.conj()
+    
+    Pest = np.diag(PPest)
+    
+    return Pest
+    
