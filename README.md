@@ -1,7 +1,7 @@
 # acosolo
 ACOustical SOurce Localization with Optimization methods
 
-Implementations of some optimization (or sparsity) base methods for source localization:
+Implementations of some optimization (or sparsity) bases methods for source localization:
 
 * Beamforming, Maximum likelihood for one source [1]
 * An optimized implementation of CMF [2]
@@ -21,10 +21,10 @@ What you will **not** find here:
 
 Demo scripts:
 
-* `DEMO_BF.py`: demonstration of beamforming with synchronous or asynchronous arrays, using simulated data
-* `DEMO_cmf_nnls.py`: demonstration of CMF, with experimental data
-* `DEMO_gridless.py`: gridless source localization, with experimental data
-* `DEMO_CMF_OLS`: localization of correlated sourcesn, with simulated data
+* `DEMO_BF.py/m`: demonstration of beamforming with synchronous or asynchronous arrays, using simulated data
+* `DEMO_cmf_nnls.py/m`: demonstration of CMF, with experimental data
+* `DEMO_gridless.py/m`: gridless source localization, with experimental data
+* `DEMO_CMF_OLS.py/m`: localization of correlated sourcesn, with simulated data
 
 
 Author: G. Chardon
