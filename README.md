@@ -1,7 +1,7 @@
 # acosolo
 ACOustical SOurce Localization with Optimization methods
 
-Implementations of some optimization (or sparsity) bases methods for source localization:
+Implementations of some optimization (or sparsity) based methods for source localization:
 
 * Beamforming, Maximum likelihood for one source [1]
 * An optimized implementation of CMF [2]
