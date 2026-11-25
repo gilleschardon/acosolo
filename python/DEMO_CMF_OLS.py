@@ -50,13 +50,13 @@ sig0 = sig_source + sig_noise
 Sigma0 = scm(sig0)
 
 # source dictionary
-A = g(Xgrid)
+G = g(Xgrid)
 
 # estimation of the covariance matrices and indices of the selected sources
-S_est, idx = CMF_OLS_correl(Sigma0, A, Nsources)
+S_est, idx = CMF_OLS_correl(Sigma0, G, Nsources)
     
 # beamforming map
-bmap = bmap_unc(Sigma0, A)
+bmap = bmap_unc(Sigma0, G)
 #%%
 fig, axs = plt.subplots(2, 2)
 

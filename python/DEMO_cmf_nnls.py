@@ -33,10 +33,10 @@ Z = 4.6
 g2D = lambda x : freefield2D(Array, x, Z, k)
 
 Xgrid, dimgrid = grid3D([-2, -1, Z], [1, 0, Z], 0.02)
-A = g2D(Xgrid)
-bmap = bmap_unc(Sigma, A)
+G = g2D(Xgrid)
+bmap = bmap_unc(Sigma, G)
 
-cmf_map = cmf.cmf_nnls_lh(A, Sigma, dr = True)
+cmf_map = cmf.cmf_nnls_lh(Sigma, G, dr = True)
 
 
 cmfDB = 10*np.log10(cmf_map)

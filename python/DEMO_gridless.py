@@ -52,8 +52,8 @@ Z = 4.6
 g2D = lambda x : freefield2D(Array, x, Z, k)
 
 Xgrid, dimgrid = grid3D([-2, -1, Z], [1, 0, Z], 0.01)
-A = g2D(Xgrid)
-bmap = bmap_unc(Sigma, A)
+G = g2D(Xgrid)
+bmap = bmap_unc(Sigma, G)
 
 
 #%%
